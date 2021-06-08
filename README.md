@@ -37,5 +37,8 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npx json-server --watch data/db.json --port 8000`
 
-Website images
+#Website images
 
+![Home page](https://github.com/maximuusS/BlogReact/blob/main/image1.png?raw=true)
+
+![Create page](https://github.com/maximuusS/BlogReact/blob/main/image2.png?raw=true)
