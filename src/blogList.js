@@ -1,7 +1,19 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom'
-const BlogList = ({blogs, handleDelete}) =>{
+import { useHistory } from 'react-router-dom'
 
-   
+const BlogList = ({blogs}) =>{
+
+    const history = useHistory();
+    const handleDelete = (id) => {
+
+            fetch(`http://localhost:8000/blogs/${id}`,{
+                method: 'DELETE'
+            }).then(() =>{
+                history.push('/create');
+            })
+            
+    }
 
     return(
         <div className="blog-list">
@@ -11,7 +23,9 @@ const BlogList = ({blogs, handleDelete}) =>{
                         <h2>{blog.title}</h2>
                         <p>Written by {blog.author}</p>
                     </Link>
-                   
+                    <button onClick ={() => {handleDelete(blog.id)}} >
+                        delete
+                    </button>
                 </div>
             ))}
         </div>

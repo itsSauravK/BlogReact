@@ -6,9 +6,9 @@ const BlogDetails = () => {
     const {data: blog, error, isPending} = useFetch(`http://localhost:8000/blogs/${id}`);
     const history = useHistory();
 
-    const handleDelete = () => {
+    const handleDelete = (id) => {
 
-            fetch(`http://localhost:8000/blogs/${blog.id}`,{
+            fetch(`http://localhost:8000/blogs/${id}`,{
                 method: 'DELETE'
             }).then(() =>{
                 history.push('/');
@@ -28,7 +28,7 @@ const BlogDetails = () => {
                     <div>
                         {blog.body}
                     </div>
-                    <button onClick ={handleDelete}>
+                    <button onClick ={() => {handleDelete(blog.id)}} >
                         delete
                     </button>
                 </article>
